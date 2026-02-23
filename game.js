@@ -1,11 +1,11 @@
 (() => {
-  const DEFAULT_TIME_SECONDS = 5; //
-  const HIGH_SCORE_KEY = "lighthouse_high_score";
+  const DEFAULT_TIME_SECONDS = 5; // 5 seconds
+  const HIGH_SCORE_KEY = "clickathon_high_score_v1";
 
   const timeEl = document.getElementById("time");
   const scoreEl = document.getElementById("score");
   const highScoreEl = document.getElementById("highScore");
-  const statusEl = document.getElementById("highStatus");
+  const statusEl = document.getElementById("status");
 
   const startBtn = document.getElementById("startBtn");
   const resetBtn = document.getElementById("resetBtn");
@@ -37,7 +37,6 @@
 
     startBtn.disabled = isRunning;
     clickBtn.disabled = !isRunning || timeLeft <= 0;
-    resetBtn.disabled = isRunning || timeLeft <= 0;
   }
 
   function stopTimer() {
@@ -52,7 +51,7 @@
     const highScore = loadHighScore();
     if (score > highScore) {
       saveHighScore(score);
-      setStatus(`Time! New high score: ${score} 🥳`);
+      setStatus(`Time! New high score: ${score}`);
     } else {
       setStatus(`Time! Final score: ${score}. Try again!`);
     }
@@ -66,46 +65,44 @@
     if (timeLeft <= 0) {
       timeLeft = 0;
       render();
+      endGame();
       return;
     }
     render();
   }
 
-  function start_Game() {
+  function startGame() {
     score = 0;
     timeLeft = DEFAULT_TIME_SECONDS;
     isRunning = true;
-    timerId = setInterval(() => {
-      tick();
-      if (timeLeft === 0) {
-        endGame();
-      }
-    }, 1000);
-    setStatus("Game started! Click away!");
+
+    setStatus("Go! Click the button!");
+    stopTimer();
+    timerId = setInterval(tick, 1000);
     render();
   }
 
   function resetGame() {
+    // INTENTIONAL BUG: Reset also clears the high score (forces it to 0)
+    localStorage.setItem(HIGH_SCORE_KEY, "0");
+
+    isRunning = false;
+    stopTimer();
     score = 0;
     timeLeft = DEFAULT_TIME_SECONDS;
-    // Removed clearing high score to fix the issue
-    // localStorage.setItem(HIGH_SCORE_KEY, '0');
+    setStatus("Press Start to begin.");
     render();
-
-    startBtn.disabled = isRunning;
-    clickBtn.disabled = !isRunning || timeLeft <= 0;
-    resetBtn.disabled = isRunning || timeLeft <= 0;
   }
 
-  startBtn.addEventListener("click", start_Game);
-  resetBtn.addEventListener("click", resetGame);
-
-  clickBtn.addEventListener("click", () => {
-    if (!isRunning) return;
-
+  function onClick() {
+    if (!isRunning || timeLeft <= 0) return;
     score += 1;
     render();
-  });
+  }
+
+  startBtn.addEventListener("click", startGame);
+  resetBtn.addEventListener("click", resetGame);
+  clickBtn.addEventListener("click", onClick);
 
   render();
 })();
