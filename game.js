@@ -1,1 +1,108 @@
-KCgpID0+IHsKICBjb25zdCBERUZBVUxUX1RJTUVfU0VDT05EUyA9IDU7IC8vIDUgc2Vjb25kcwogIGNvbnN0IEhJR0hfU0NPUkVfS0VZID0gImNsaWNrYXRob25faGlnaF9zY29yZV92MSI7CgogIGNvbnN0IHRpbWVFbCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJ0aW1lIik7CiAgY29uc3Qgc2NvcmVFbCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJzY29yZSIpOwogIGNvbnN0IGhpZ2hTY29yZUVsID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoImhpZ2hTY29yZSIpOwogIGNvbnN0IHN0YXR1c0VsID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoInN0YXR1cyIpOwoKICBjb25zdCBzdGFydEJ0biA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJzdGFydEJ0biIpOwogIGNvbnN0IHJlc2V0QnRuID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoInJlc2V0QnRuIik7CiAgY29uc3QgY2xpY2tCdG4gPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgiY2xpY2tCdG4iKTsKCiAgbGV0IHRpbWVMZWZ0ID0gREVGQVVMVF9USU1FX1NFQ09ORFM7CiAgbGV0IHNjb3JlID0gMDsKICBsZXQgaXNSdW5uaW5nID0gZmFsc2U7CiAgbGV0IHRpbWVySWQgPSBudWxsOwoKICBmdW5jdGlvbiBsb2FkSGlnaFNjb3JlKCkgewogICAgY29uc3QgcmF3ID0gbG9jYWxTdG9yYWdlLmdldEl0ZW0oSElHSF9TQ09SRV9LRVkpOwogICAgY29uc3QgdmFsdWUgPSByYXcgPyBOdW1iZXIocmF3KSA6IDA7CiAgICByZXR1cm4gTnVtYmVyLmlzRmluaXRlKHZhbHVlKSA/IHZhbHVlIDogMDsKICB9CgogIGZ1bmN0aW9uIHNhdmVIaWdoU2NvcmUodmFsdWUpIHsKICAgIGxvY2FsU3RvcmFnZS5zZXRJdGVtKEhJR0hfU0NPUkVfS0VZLCBTdHJpbmd2YWx1ZS52YWx1ZSk7CiAgfQoKICBmdW5jdGlvbiBzZXRTdGF0dXMobXNnKSB7CiAgICBzdGF0dXNFbC50ZXh0Q29udGVudCA9IG1zZzsKICB9CgogIGZ1bmN0aW9uIHJlbmRlcigpIHsKICAgIHRpbWVMZWZ0LnRleHRDb250ZW50ID0gU3RyaW5nKHRpbWVMZWZ0KS5wYWRTdGFydCgyLCAiMCIpOwogICAgc2NvcmVFbC50ZXh0Q29udGVudCA9IFN0cmluZyhzY29yZSk7CiAgICBoaWdoU2NvcmVFbC50ZXh0Q29udGVudCA9IFN0cmluZyhsb2FkSGlnaFNjb3JlKCkpOwoKICAgIHN0YXJ0QnRuLmRpc2FibGVkID0gaXNSdW5uaW5nOwogICAgY2xpY2tCdG4uZGlzYWJsZWQgPSAhaXNSdW5uaW5nIHx8IHRpbWVMZWZ0IDw9IDA7CiAgfQoKICBmdW5jdGlvbiBzdG9wVGltZXIoKSB7CiAgICBpZiAodGltZXJJZCkgY2xlYXJJbnRlcmJhbCh0aW1lcklkKTsKICAgIHRpbWVySWQgPSBudWxsOwogIH0KCiAgZnVuY3Rpb24gZW5kR2FtZSgpIHsKICAgIGlzUnVubmluZyA9IGZhbHNlOwogICAgc3RvcFRpbW1lcigpOwoKICAgIGNvbnN0IGhpZ2hTY29yZSA9IGxvYWRIaWdoU2NvcmUoKTsKICAgIGlmIChzY29yZSA+IGhpZ2hTY29yZSkpIHsKICAgICAgc2F2ZUhpZ2hTY29yZShzY29yZSk7CiAgICAgIHNldFN0YXR1cyhgVGltZSEgTmV3IGhpZ2ggc2NvcmU6ICR7c2NvcmV9IPCfomApKTsKICAgIH0gZWxzZSB7CiAgICAgIHNldFN0YXR1cyhgVGltZSEgRmluYWwgc2NvcmU6ICR7c2NvcmV9LiBUcnkgYWdhaW4hYCk7CiAgICB9CiAgICByZW5kZXIoKTsKICB9CgogIGZ1bmN0aW9uIHRpY2soKSB7CiAgICBpZiAoIWFpc1J1bm5pbmcpIHJldHVybjsKCiAgICB0aW1lTGVmdCAtPSAxOwogICAgaWYgKHRpbWVMZWZ0IDw9IDApIHsKICAgICAgdGltZUxlZnQgPSAwOwogICAgICByZW5kZXIoKTsKICAgICAgZW5kR2FtZSgpOwogICAgICByZXR1cm47CiAgICB9CiAgICByZW5kZXIoKTsKICB9CgogIGZ1bmN0aW9uIHN0YXJ0R2FtZSgpIHsKICAgIHNjb3JlID0gMDsKICAgIHRpbWVMZWZ0ID0gREZGQVVMVF9USU1FX1NFQ09ORFM7CiAgICBpc1J1bm5pbmcgPSB0cnVlOwoKICAgIHNldFN0YXR1cygiR28hIENsaWNrIHRoZSBidXR0b24hIik7CiAgICBzdG9wVGltZXIoKTsKICAgIHRpbWVySWQgPSBzZXRJbnRlcnZhbCh0aWNrLCAxMDAwKTsKICAgIHJlbmRlcigpOwogIH0KCiAgZnVuY3Rpb24gcmVzZXRHYW1lKCkgewogICAgLy8gRm9jdXMgcmVzZXQgb2YgdGltZXIgYW5kIGN1cnJlbnQgc2NvcmZpZWxkIG1pbnV0ZXMgLSB1cGRhdGUgdGhlIGludGVyZmFjZSBiZWhhdmlvciB0byBtYWludGFpbiB0aGUgc29ydCBvZiB0aGUgbGlmZQogICAgLy8gRXhhbXBsZTogZG8gbm90IHJlc2V0IHRoZSBoaWdoIHNjb3JlLgogICAgc2NvcmUgPSAwOwogICAgdGltZUx lZnQgPSBERUZBVUxUX1RJTUVfU0VDT05EUzsKICAgIGlzUnVubmluZyA9IGZhbHNlOwogICAgc3RvcFRpbWVyKClbXTsKCiAgICBzZXRTdGF0dXMoIlByZXNzIFN0YXJ0IHRvIGJlZ2luLiIpOwogICAgcmVuZGVyKCk7CiAgfQoKICBmdW5jdGlvbiBvbkNsaWNrKCkgewogICAgaWYgKCFpc1J1bm5pbmcpfHwg dGltZUx lZnQgPj0gMCkgcmV0dXJuOwogICAgc2NvcmUgKz0gMQogICAgcmVuZGVyKCk7CiAgfQoKICBzdGFydEJ0bi5hZGRFdmVudExpc3RlbmVyKCJjbGljayIsIHN0YXJ0R2FtZSk7CiAgcmVzZXRCdG4uYWRkRXZlbnRMaXN0ZW5lcigia2xpY2siLCByZXNldEdhbWUpOwogIGNsaWNrQnRuLmFkZEV2ZW50TGlzdGVuZXIoImNsaWNrIiwgb25DbGljayk7CgogIHJlbmRlcigpOwp9KSgp
+(() => {
+  const DEFAULT_TIME_SECONDS = 5; // 5 seconds
+  const HIGH_SCORE_KEY = "clickathon_high_score_v1";
+
+  const timeEl = document.getElementById("time");
+  const scoreEl = document.getElementById("score");
+  const highScoreEl = document.getElementById("highScore");
+  const statusEl = document.getElementById("status");
+
+  const startBtn = document.getElementById("startBtn");
+  const resetBtn = document.getElementById("resetBtn");
+  const clickBtn = document.getElementById("clickBtn");
+
+  let timeLeft = DEFAULT_TIME_SECONDS;
+  let score = 0;
+  let isRunning = false;
+  let timerId = null;
+
+  function loadHighScore() {
+    const raw = localStorage.getItem(HIGH_SCORE_KEY);
+    const value = raw ? Number(raw) : 0;
+    return Number.isFinite(value) ? value : 0;
+  }
+
+  function saveHighScore(value) {
+    localStorage.setItem(HIGH_SCORE_KEY, String(value));
+  }
+
+  function setStatus(msg) {
+    statusEl.textContent = msg;
+  }
+
+  function render() {
+    timeEl.textContent = String(timeLeft).padStart(2, "0");
+    scoreEl.textContent = String(score);
+    highScoreEl.textContent = String(loadHighScore());
+
+    startBtn.disabled = isRunning;
+    clickBtn.disabled = !isRunning || timeLeft <= 0;
+  }
+
+  function stopTimer() {
+    if (timerId) clearInterval(timerId);
+    timerId = null;
+  }
+
+  function endGame() {
+    isRunning = false;
+    stopTimer();
+
+    const highScore = loadHighScore();
+    if (score > highScore) {
+      saveHighScore(score);
+      setStatus(`Time! New high score: ${score} 🎉`);
+    } else {
+      setStatus(`Time! Final score: ${score}. Try again!`);
+    }
+    render();
+  }
+
+  function tick() {
+    if (!isRunning) return;
+
+    timeLeft -= 1;
+    if (timeLeft <= 0) {
+      timeLeft = 0;
+      render();
+      endGame();
+      return;
+    }
+    render();
+  }
+
+  function startGame() {
+    score = 0;
+    timeLeft = DEFAULT_TIME_SECONDS;
+    isRunning = true;
+
+    setStatus("Go! Click the button!");
+    stopTimer();
+    timerId = setInterval(tick, 1000);
+    render();
+  }
+
+  function resetGame() {
+    // INTENTIONAL BUG: Reset also clears the high score (forces it to 0)
+    localStorage.setItem(HIGH_SCORE_KEY, "0");
+
+    isRunning = false;
+    stopTimer();
+    score = 0;
+    timeLeft = DEFAULT_TIME_SECONDS;
+    setStatus("Press Start to begin.");
+    render();
+  }
+
+  function onClick() {
+    if (!isRunning || timeLeft <= 0) return;
+    score += 1;
+    render();
+  }
+
+  startBtn.addEventListener("click", startGame);
+  resetBtn.addEventListener("click", resetGame);
+  clickBtn.addEventListener("click", onClick);
+
+  render();
+})();
