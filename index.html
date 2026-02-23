@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Click-a-thon</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>Click-a-thon</h1>
+      <p class="subtitle">Click as many times as you can in 5 seconds.</p>
+    </header>
+
+    <section class="stats">
+      <div class="stat">
+        <div class="label">Time</div>
+        <div id="time" class="value">05</div>
+      </div>
+      <div class="stat">
+        <div class="label">Score</div>
+        <div id="score" class="value">0</div>
+      </div>
+      <div class="stat">
+        <div class="label">High Score</div>
+        <div id="highScore" class="value">0</div>
+      </div>
+    </section>
+
+    <section class="actions">
+      <button id="startBtn" class="btn primary">Start</button>
+      <button id="resetBtn" class="btn">Reset</button>
+    </section>
+
+    <section class="play">
+      <button id="clickBtn" class="big" disabled>Click!</button>
+      <div id="status" class="status">Press Start to begin.</div>
+    </section>
+
+    <footer class="footer">
+      <small>Tip: Beat your high score.</small>
+    </footer>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
