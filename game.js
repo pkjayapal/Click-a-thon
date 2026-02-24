@@ -61,44 +61,38 @@
   function tick() {
     if (!isRunning) return;
 
-    timeLeft -= 1;
+    timeLeft--;
     if (timeLeft <= 0) {
-      timeLeft = 0;
-      render();
       endGame();
-      return;
     }
     render();
   }
 
   function startGame() {
-    score = 0;
-    timeLeft = DEFAULT_TIME_SECONDS;
+    if (isRunning) return;
     isRunning = true;
-
-    setStatus("Go! Click the button!");
-    stopTimer();
-    timerId = setInterval(tick, 1000);
+    timeLeft = DEFAULT_TIME_SECONDS;
+    score = 0;
+    setStatus("");
     render();
+    timerId = setInterval(tick, 1000);
   }
 
   function resetGame() {
-    // INTENTIONAL BUG: Reset also clears the high score (forces it to 0)
-    localStorage.setItem(HIGH_SCORE_KEY, "0");
-
     isRunning = false;
     stopTimer();
-    score = 0;
     timeLeft = DEFAULT_TIME_SECONDS;
+    score = 0;
+    // localStorage.setItem(HIGH_SCORE_KEY, "0"); // <-- Bug: should not clear high score (removed)
     setStatus("");
     render();
   }
 
   startBtn.addEventListener("click", startGame);
   resetBtn.addEventListener("click", resetGame);
-  clickBtn.addEventListener("click", function () {
+  clickBtn.addEventListener("click", () => {
     if (!isRunning) return;
-    score += 1;
+    score++;
     render();
   });
 
