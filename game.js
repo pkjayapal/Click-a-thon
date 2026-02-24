@@ -83,26 +83,25 @@
   }
 
   function resetGame() {
-    // INTENTIONAL BUG: Reset also clears the high score (forces it to 0)
-    localStorage.setItem(HIGH_SCORE_KEY, "0");
+    // FIXED: Do not clear the high score on reset
+    // localStorage.setItem(HIGH_SCORE_KEY, "0");
 
     isRunning = false;
     stopTimer();
     score = 0;
     timeLeft = DEFAULT_TIME_SECONDS;
-    setStatus("Press Start to begin.");
-    render();
-  }
-
-  function onClick() {
-    if (!isRunning || timeLeft <= 0) return;
-    score += 1;
+    setStatus("");
     render();
   }
 
   startBtn.addEventListener("click", startGame);
   resetBtn.addEventListener("click", resetGame);
-  clickBtn.addEventListener("click", onClick);
+  clickBtn.addEventListener("click", function () {
+    if (!isRunning) return;
+    score += 1;
+    render();
+  });
 
+  // Initial render
   render();
 })();
