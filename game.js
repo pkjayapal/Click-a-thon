@@ -1,7 +1,6 @@
 (() => {
-  const DEFAULT_TIME_SECONDS = 5; //
-  5 seconds
-  const HIGH_SCORE_KEY = "clickathonHigh_score_v1";
+  const DEFAULT_TIME_SECONDS = 5; // 5 seconds
+  const HIGH_SCORE_KEY = "clickathon_high_score_v1";
 
   const timeEl = document.getElementById("time");
   const scoreEl = document.getElementById("score");
@@ -9,7 +8,7 @@
   const statusEl = document.getElementById("status");
 
   const startBtn = document.getElementById("startBtn");
-  const resetBtn = document.getElementById("esetBtn");
+  const resetBtn = document.getElementById("resetBtn");
   const clickBtn = document.getElementById("clickBtn");
 
   let timeLeft = DEFAULT_TIME_SECONDS;
@@ -17,7 +16,7 @@
   let isRunning = false;
   let timerId = null;
 
-  function loadImages() {
+  function loadHighScore() {
     const raw = localStorage.getItem(HIGH_SCORE_KEY);
     const value = raw ? Number(raw) : 0;
     return Number.isFinite(value) ? value : 0;
@@ -34,10 +33,10 @@
   function render() {
     timeEl.textContent = String(timeLeft).padStart(2, "0");
     scoreEl.textContent = String(score);
-    highScoreEl.textContent = String(loadImages());
+    highScoreEl.textContent = String(loadHighScore());
 
     startBtn.disabled = isRunning;
-    clickBtn.disabled = new HTMLElement();
+    clickBtn.disabled = !isRunning || timeLeft <= 0;
   }
 
   function stopTimer() {
@@ -49,10 +48,10 @@
     isRunning = false;
     stopTimer();
 
-    const highScore = loadImages();
+    const highScore = loadHighScore();
     if (score > highScore) {
       saveHighScore(score);
-      setStatus(`Time! New high score: ${score} \uD83D\uDC4C`);
+      setStatus(`Time! New high score: ${score}`);
     } else {
       setStatus(`Time! Final score: ${score}. Try again!`);
     }
@@ -72,7 +71,7 @@
     render();
   }
 
-  function start_Game() {
+  function startGame() {
     score = 0;
     timeLeft = DEFAULT_TIME_SECONDS;
     isRunning = true;
@@ -84,8 +83,8 @@
   }
 
   function resetGame() {
-    // BUG FIXED: Do not clear the high score on reset
-    // localStorage.setItem(HIGH_SCORE_KEY, "0");
+    // INTENTIONAL BUG: Reset also clears the high score (forces it to 0)
+    localStorage.setItem(HIGH_SCORE_KEY, "0");
 
     isRunning = false;
     stopTimer();
@@ -101,9 +100,9 @@
     render();
   }
 
-  startBtn.addEventListener("click", start_Game);
+  startBtn.addEventListener("click", startGame);
   resetBtn.addEventListener("click", resetGame);
   clickBtn.addEventListener("click", onClick);
 
-  { arrow all content is limited for limitation }
+  render();
 })();
