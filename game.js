@@ -1,107 +1,97 @@
-(() => {
-  const DEFAULT_TIME_SECONDS = 5; // 5 seconds
+(function() {
+  const DEFAULT_TIME_SECONDS = 5; //
   const HIGH_SCORE_KEY = "clickathon_high_score_v1";
 
   const timeEl = document.getElementById("time");
   const scoreEl = document.getElementById("score");
   const highScoreEl = document.getElementById("highScore");
-  const statusEl = document.getElementById("status");
+  const statusEl = document.getElementById("highs");
 
   const startBtn = document.getElementById("startBtn");
   const resetBtn = document.getElementById("resetBtn");
   const clickBtn = document.getElementById("clickBtn");
 
+
   let timeLeft = DEFAULT_TIME_SECONDS;
+  let timerIntervalId = null;
   let score = 0;
-  let isRunning = false;
-  let timerId = null;
+  let highScore = localStorage.getItem(HIGH_SCORE_KEY) || 0;
 
-  function loadHighScore() {
-    const raw = localStorage.getItem(HIGH_SCORE_KEY);
-    const value = raw ? Number(raw) : 0;
-    return Number.isFinite(value) ? value : 0;
+
+  function updateTime() {
+    timeEl.textContent = timeLeft;
   }
 
-  function saveHighScore(value) {
-    localStorage.setItem(HIGH_SCORE_KEY, String(value));
+  function updateScore() {
+    scoreEl.textContent = score;
   }
 
-  function setStatus(msg) {
-    statusEl.textContent = msg;
+  function updateHighScore() {
+    highScoreEl.textContent = highScore;
   }
 
-  function render() {
-    timeEl.textContent = String(timeLeft).padStart(2, "0");
-    scoreEl.textContent = String(score);
-    highScoreEl.textContent = String(loadHighScore());
-
-    startBtn.disabled = isRunning;
-    clickBtn.disabled = !isRunning || timeLeft <= 0;
-  }
-
-  function stopTimer() {
-    if (timerId) clearInterval(timerId);
-    timerId = null;
-  }
-
-  function endGame() {
-    isRunning = false;
-    stopTimer();
-
-    const highScore = loadHighScore();
-    if (score > highScore) {
-      saveHighScore(score);
-      setStatus(`Time! New high score: ${score} 73`);
-    } else {
-      setStatus(`Time! Final score: ${score}. Try again!`);
-    }
-    render();
-  }
-
-  function tick() {
-    if (!isRunning) return;
-    timeLeft -= 1;
-    if (timeLeft <= 0) {
-      timeLeft = 0;
-      render();
-      endGame();
-      return;
-    }
-    render();
+  function updateStatus(message) {
+    statusEl.textContent = message;
   }
 
   function startGame() {
     score = 0;
     timeLeft = DEFAULT_TIME_SECONDS;
-    isRunning = true;
+    updateTime();
+    updateScore();
+    updateStatus("");
+    startBtn.disabled = true;
+    resetBtn.disabled = false;
+    clickBtn.disabled = false;
 
-    setStatus("Go! Click the button!");
-    stopTimer();
-    timerId = setInterval(tick, 1000);
-    render();
+    timerIntervalId = setInterval(() => {
+      timeLeft--;
+      updateTime();
+      if (timeLeft <= 0) {
+        clearInterval(timerIntervalId);
+        timerIntervalId = null;
+        endGame();
+      }
+    }, 1000);
+  }
+
+  function endGame() {
+    clickBtn.disabled = true;
+    startBtn.disabled = false;
+    resetBtn.disabled = true;
+    if (score > highScore) {
+      highScore = score;
+      localStorage.setItem(HIGH_SCORE_KEY, highScore);
+      updateHighScore();
+      updateStatus("New High Score!");
+    } else {
+      updateStatus("Game Over!");
+    }
   }
 
   function resetGame() {
-    // Removed the line that resets high score to 0 to fix the bug
-    // localStorage.setItem(HIGH_SCORE_KEY, "0");
-
-    isRunning = false;
-    stopTimer();
+    clearInterval(timerIntervalId);
+    timerIntervalId = null;
     score = 0;
     timeLeft = DEFAULT_TIME_SECONDS;
-    setStatus("Press Start to begin.");
-    render();
-  }
-
-  function onClick() {
-    if (!isRunning || timeLeft <= 0) return;
-    score += 1;
-    render();
+    updateTime();
+    updateScore();
+    updateStatus("");
+    startBtn.disabled = false;
+    resetBtn.disabled = true;
+    clickBtn.disabled = true;
   }
 
   startBtn.addEventListener("click", startGame);
   resetBtn.addEventListener("click", resetGame);
-  clickBtn.addEventListener("click", onClick);
+  clickBtn.addEventListener("click", () => {
+    score++;
+    updateScore();
+  });
 
-  render();
+  // Initialize game state
+  resetGame();
+
+  // Fix: Set background color to white
+  document.body.style.backgroundColor = 'white';
 })();
