@@ -51,7 +51,7 @@
     const highScore = loadHighScore();
     if (score > highScore) {
       saveHighScore(score);
-      setStatus(`Time! New high score: ${score} 🎉`);
+      setStatus(`Time! New high score: ${score} 73`);
     } else {
       setStatus(`Time! Final score: ${score}. Try again!`);
     }
@@ -60,7 +60,6 @@
 
   function tick() {
     if (!isRunning) return;
-
     timeLeft -= 1;
     if (timeLeft <= 0) {
       timeLeft = 0;
@@ -83,8 +82,8 @@
   }
 
   function resetGame() {
-    // INTENTIONAL BUG: Reset also clears the high score (forces it to 0)
-    localStorage.setItem(HIGH_SCORE_KEY, "0");
+    // Removed the line that resets high score to 0 to fix the bug
+    // localStorage.setItem(HIGH_SCORE_KEY, "0");
 
     isRunning = false;
     stopTimer();
