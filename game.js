@@ -37,9 +37,6 @@
 
     startBtn.disabled = isRunning;
     clickBtn.disabled = !isRunning || timeLeft <= 0;
-
-    // removed this line to save the high score
-    // localStorage.setItem(HIGH_SCORE_KEY, "");
   }
 
   function stopTimer() {
@@ -86,7 +83,9 @@
   }
 
   function resetGame() {
-    // FIX: Do NOT clear the high score in localStorage, just reset other state
+    // INTENTIONAL BUG: Reset also clears the high score (forces it to 0)
+    localStorage.setItem(HIGH_SCORE_KEY, "0");
+    
     isRunning = false;
     stopTimer();
     score = 0;
