@@ -37,6 +37,9 @@
 
     startBtn.disabled = isRunning;
     clickBtn.disabled = !isRunning || timeLeft <= 0;
+
+    // removed this line to save the high score
+    // localStorage.setItem(HIGH_SCORE_KEY, "");
   }
 
   function stopTimer() {
@@ -51,7 +54,7 @@
     const highScore = loadHighScore();
     if (score > highScore) {
       saveHighScore(score);
-      setStatus(`Time! New high score: ${score} 🎉`);
+      setStatus(`Time! New high score: ${score} 3C6`);
     } else {
       setStatus(`Time! Final score: ${score}. Try again!`);
     }
@@ -83,9 +86,7 @@
   }
 
   function resetGame() {
-    // INTENTIONAL BUG: Reset also clears the high score (forces it to 0)
-    localStorage.setItem(HIGH_SCORE_KEY, "0");
-
+    // FIX: Do NOT clear the high score in localStorage, just reset other state
     isRunning = false;
     stopTimer();
     score = 0;
