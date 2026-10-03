@@ -51,7 +51,8 @@
     const highScore = loadHighScore();
     if (score > highScore) {
       saveHighScore(score);
-      setStatus(`Time! New high score: ${score} 3C6`);
+      setStatus(`Time! New high score: ${score} 
+`);
     } else {
       setStatus(`Time! Final score: ${score}. Try again!`);
     }
@@ -83,9 +84,10 @@
   }
 
   function resetGame() {
-    // INTENTIONAL BUG: Reset also clears the high score (forces it to 0)
-    localStorage.setItem(HIGH_SCORE_KEY, "0");
-    
+    // INTERNAL BUG: Reset also clears the high score (forces it to 0)
+    // Removed the following line that resets the high score:
+    // localStorage.setItem(HIGH_SCORE_KEY, "0");
+
     isRunning = false;
     stopTimer();
     score = 0;
