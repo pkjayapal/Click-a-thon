@@ -83,8 +83,7 @@
   }
 
   function resetGame() {
-    // Removed clearing the high score on reset as per Issue Number 9
-    // localStorage.setItem(HIGH_SCORE_KEY, "0");
+    localStorage.setItem(HIGH_SCORE_KEY, "0");
 
     isRunning = false;
     stopTimer();
